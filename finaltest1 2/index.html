@@ -273,6 +273,7 @@ function submitForm(e){e.preventDefault();document.getElementById('formSuccess')
   let W,H,t=0,clouds=[];
   function rand(a,b){return a+Math.random()*(b-a);}
   function resize(){W=cv.offsetWidth;H=cv.offsetHeight;cv.width=W;cv.height=H;if(!clouds.length)for(let i=0;i<10;i++)spawnCloud(false);}
+
   function makePuffs(){
     const ps=[];
     const layers=Math.floor(rand(5,9));
@@ -285,40 +286,122 @@ function submitForm(e){e.preventDefault();document.getElementById('formSuccess')
       for(let i=0;i<puffsInLayer;i++){
         const angle=(i/puffsInLayer)*Math.PI*2+rand(-0.3,0.3);
         const spread=layer===layers-1?layerWidth*0.9:layerWidth*0.6;
-        ps.push({ox:Math.cos(angle)*spread*rand(0.4,1.0),oy:layerY+Math.sin(angle)*spread*0.25+rand(-20,20),r:puffR,w:rand(0,Math.PI*2),ws:rand(0.0003,0.0015),layer:layer,layerFrac:layerFrac});
+        ps.push({
+          ox:Math.cos(angle)*spread*rand(0.4,1.0),
+          oy:layerY+Math.sin(angle)*spread*0.25+rand(-20,20),
+          r:puffR,
+          w:rand(0,Math.PI*2),
+          ws:rand(0.0002,0.0008),
+          // ink bleed ripple — multiple slow waves
+          rw:rand(0,Math.PI*2), rs:rand(0.004,0.012), ra:rand(3,7),
+          rw2:rand(0,Math.PI*2), rs2:rand(0.007,0.018), ra2:rand(1.5,4),
+          rw3:rand(0,Math.PI*2), rs3:rand(0.002,0.006), ra3:rand(2,5),
+          // each puff slowly grows and shrinks like ink absorbing into paper
+          gr:rand(0,Math.PI*2), gs:rand(0.003,0.009),
+          layer:layer, layerFrac:layerFrac
+        });
       }
     }
     return ps;
   }
-  function spawnCloud(fs){const side=Math.random()<0.5?-1:1;clouds.push({x:fs?(side<0?-W*0.4:W*1.4):rand(-W*0.25,W*1.25),y:rand(H*0.35,H*0.75),vx:rand(0.03,0.10)*(Math.random()<0.5?1:-1),puffs:makePuffs(),maxOp:rand(0.11,0.22),opacity:0,age:fs?0:rand(0,600),fadeIn:rand(200,420),scale:rand(1.0,2.0),dead:false});}
-  function drawCloud(cl){let op=cl.opacity;const ef=Math.min(cl.x/(W*0.1),(W-cl.x)/(W*0.1),1);op*=Math.max(0,Math.min(1,ef));if(op<0.003)return;ctx.save();ctx.translate(cl.x,cl.y);ctx.scale(cl.scale,cl.scale*0.78);
-  cl.puffs.forEach(p=>{
-    const px=p.ox+Math.sin(t*p.ws+p.w)*1.5;
-    const py=p.oy+Math.cos(t*p.ws*0.5+p.w)*0.8;
-    const lf=p.layerFrac||0;
-    const shadowOp=op*(0.5-lf*0.25);
-    const g0=ctx.createRadialGradient(px,py+p.r*0.2,p.r*0.2,px,py,p.r*1.15);
-    g0.addColorStop(0,`rgba(110,118,148,${shadowOp})`);
-    g0.addColorStop(1,`rgba(120,128,158,0)`);
-    ctx.fillStyle=g0;ctx.beginPath();ctx.arc(px,py+p.r*0.12,p.r*1.15,0,Math.PI*2);ctx.fill();
-    const bl=175+lf*30;
-    const g1=ctx.createRadialGradient(px-p.r*0.22,py-p.r*0.28,p.r*0.04,px,py,p.r);
-    g1.addColorStop(0,`rgba(${Math.round(bl-15)},${Math.round(bl-5)},${Math.round(bl+28)},${op*0.80})`);
-    g1.addColorStop(0.55,`rgba(${Math.round(bl-22)},${Math.round(bl-10)},${Math.round(bl+18)},${op*0.55})`);
-    g1.addColorStop(1,`rgba(110,118,165,0)`);
-    ctx.fillStyle=g1;ctx.beginPath();ctx.arc(px,py,p.r,0,Math.PI*2);ctx.fill();
-    const hlOp=op*(0.4+lf*0.35);
-    const g2=ctx.createRadialGradient(px-p.r*0.28,py-p.r*0.32,0,px-p.r*0.1,py-p.r*0.15,p.r*0.5);
-    g2.addColorStop(0,`rgba(215,220,240,${hlOp})`);
-    g2.addColorStop(1,`rgba(200,210,235,0)`);
-    ctx.fillStyle=g2;ctx.beginPath();ctx.arc(px-p.r*0.1,py-p.r*0.15,p.r*0.5,0,Math.PI*2);ctx.fill();
-  });
-  ctx.restore();}
-  function update(){clouds.forEach(cl=>{cl.x+=cl.vx;cl.age++;if(cl.age<cl.fadeIn)cl.opacity=(cl.age/cl.fadeIn)*cl.maxOp;else cl.opacity=cl.maxOp;if(cl.x<-W*0.55||cl.x>W*1.55)cl.dead=true;});clouds=clouds.filter(c=>!c.dead);if(Math.random()<0.01&&clouds.length<16)spawnCloud(true);if(clouds.length<6)for(let i=0;i<3;i++)spawnCloud(true);}
-  function frame(){ctx.clearRect(0,0,W,H);clouds.forEach(drawCloud);update();t+=0.3;requestAnimationFrame(frame);}
+
+  function spawnCloud(fs){
+    const side=Math.random()<0.5?-1:1;
+    clouds.push({
+      x:fs?(side<0?-W*0.4:W*1.4):rand(-W*0.25,W*1.25),
+      y:rand(H*0.25,H*0.78),
+      vx:rand(0.02,0.08)*(Math.random()<0.5?1:-1),
+      puffs:makePuffs(),
+      maxOp:rand(0.10,0.20),
+      opacity:0,
+      age:fs?0:rand(0,600),
+      fadeIn:rand(250,550),
+      scale:rand(1.0,2.0),
+      dead:false
+    });
+  }
+
+  function drawCloud(cl){
+    let op=cl.opacity;
+    const ef=Math.min(cl.x/(W*0.1),(W-cl.x)/(W*0.1),1);
+    op*=Math.max(0,Math.min(1,ef));
+    if(op<0.003)return;
+    ctx.save();
+    ctx.translate(cl.x,cl.y);
+    ctx.scale(cl.scale,cl.scale*0.72);
+
+    cl.puffs.forEach(p=>{
+      const lf=p.layerFrac||0;
+
+      // Ink bleed ripple — three overlapping waves give pond/bleed feel
+      const ripX = p.ra *Math.sin(t*p.rs +p.rw)
+                 + p.ra2*Math.sin(t*p.rs2+p.rw2)*0.6
+                 + p.ra3*Math.cos(t*p.rs3+p.rw3)*0.35;
+      const ripY = p.ra *Math.cos(t*p.rs *0.7+p.rw)
+                 + p.ra2*Math.cos(t*p.rs2*0.8+p.rw2)*0.5
+                 + p.ra3*Math.sin(t*p.rs3*0.5+p.rw3)*0.3;
+
+      // Radius breathes — ink soaking into paper, expanding and contracting
+      const breathe = 1 + 0.06*Math.sin(t*p.gs+p.gr) + 0.03*Math.sin(t*p.gs*2.1+p.gr);
+      const r = p.r * breathe;
+
+      const px=p.ox+Math.sin(t*p.ws+p.w)*1.2+ripX;
+      const py=p.oy+Math.cos(t*p.ws*0.5+p.w)*0.7+ripY;
+
+      // INK BLEED layers — dark feathered edges, pale wet centre, like ink on watercolour paper
+
+      // Outermost feather — very faint, wide spread, ink wicking along paper fibres
+      const gOut=ctx.createRadialGradient(px,py,r*0.6,px,py,r*1.6);
+      gOut.addColorStop(0,`rgba(90,95,115,${op*0.18})`);
+      gOut.addColorStop(0.5,`rgba(100,105,125,${op*0.08})`);
+      gOut.addColorStop(1,`rgba(110,115,135,0)`);
+      ctx.fillStyle=gOut;
+      ctx.beginPath();ctx.arc(px,py,r*1.6,0,Math.PI*2);ctx.fill();
+
+      // Mid bleed ring — where ink has travelled
+      const gMid=ctx.createRadialGradient(px-r*0.1,py-r*0.1,r*0.2,px,py,r*1.05);
+      gMid.addColorStop(0,`rgba(130,135,155,${op*0.55})`);
+      gMid.addColorStop(0.45,`rgba(120,126,148,${op*0.45})`);
+      gMid.addColorStop(0.75,`rgba(110,116,140,${op*0.22})`);
+      gMid.addColorStop(1,`rgba(105,112,138,0)`);
+      ctx.fillStyle=gMid;
+      ctx.beginPath();ctx.arc(px,py,r*1.05,0,Math.PI*2);ctx.fill();
+
+      // Core — pale wet centre, ink pushed outward, lighter in middle
+      const gCore=ctx.createRadialGradient(px-r*0.18,py-r*0.2,0,px,py,r*0.7);
+      const cLight=200+lf*20;
+      gCore.addColorStop(0,`rgba(${cLight},${cLight+2},${cLight+12},${op*0.75})`);
+      gCore.addColorStop(0.5,`rgba(${cLight-15},${cLight-12},${cLight+5},${op*0.55})`);
+      gCore.addColorStop(1,`rgba(${cLight-30},${cLight-26},${cLight-5},0)`);
+      ctx.fillStyle=gCore;
+      ctx.beginPath();ctx.arc(px,py,r*0.7,0,Math.PI*2);ctx.fill();
+
+      // Highlight — wet paper sheen, off-white, top of puff
+      const hlOp=op*(0.3+lf*0.25);
+      const gHL=ctx.createRadialGradient(px-r*0.22,py-r*0.28,0,px,py,r*0.42);
+      gHL.addColorStop(0,`rgba(232,234,238,${hlOp})`);
+      gHL.addColorStop(1,`rgba(225,228,234,0)`);
+      ctx.fillStyle=gHL;
+      ctx.beginPath();ctx.arc(px-r*0.08,py-r*0.12,r*0.42,0,Math.PI*2);ctx.fill();
+    });
+
+    ctx.restore();
+  }
+
+  function update(){
+    clouds.forEach(cl=>{
+      cl.x+=cl.vx;cl.age++;
+      if(cl.age<cl.fadeIn)cl.opacity=(cl.age/cl.fadeIn)*cl.maxOp;
+      else cl.opacity=cl.maxOp;
+      if(cl.x<-W*0.55||cl.x>W*1.55)cl.dead=true;
+    });
+    clouds=clouds.filter(c=>!c.dead);
+    if(Math.random()<0.01&&clouds.length<16)spawnCloud(true);
+    if(clouds.length<6)for(let i=0;i<3;i++)spawnCloud(true);
+  }
+
+  function frame(){ctx.clearRect(0,0,W,H);clouds.forEach(drawCloud);update();t+=0.25;requestAnimationFrame(frame);}
   new ResizeObserver(resize).observe(document.getElementById('hero'));
   resize();frame();
 })();
 </script>
-</body>
-</html>
