@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Colin Mearns Art</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@100;200;300;400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -14,16 +14,16 @@
   --accent:#7a8fa6;--border:#dedad4;--shadow:rgba(42,40,37,0.07);
 }
 html{scroll-behavior:smooth;}
-body{background:var(--white);color:var(--ink);font-family:'Raleway',sans-serif;font-weight:300;letter-spacing:0.03em;overflow-x:hidden;}
+body{background:var(--white);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;letter-spacing:0.01em;overflow-x:hidden;}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:24px 52px;transition:all 0.4s;}
 nav.scrolled{background:rgba(253,248,242,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:16px 52px;}
 .nav-logo{display:flex;align-items:center;text-decoration:none;}
-.nav-logo img{height:38px;width:auto;opacity:0.85;transition:opacity 0.3s;}
+.nav-logo img{height:52px;width:auto;opacity:0.88;transition:opacity 0.3s;}
 .nav-logo:hover img{opacity:1;}
-nav.scrolled .nav-logo img{height:30px;}
+nav.scrolled .nav-logo img{height:38px;}
 .nav-links{display:flex;gap:36px;list-style:none;}
-.nav-links a{color:var(--dim);text-decoration:none;font-size:0.75rem;letter-spacing:0.22em;text-transform:uppercase;transition:color 0.3s;position:relative;}
+.nav-links a{color:var(--dim);text-decoration:none;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;transition:color 0.3s;position:relative;font-family:'Inter',sans-serif;font-weight:400;}
 .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--ink);transition:width 0.3s;}
 .nav-links a:hover{color:var(--ink);}
 .nav-links a:hover::after{width:100%;}
@@ -39,13 +39,13 @@ nav.scrolled .nav-logo img{height:30px;}
 #hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 40px 100px;overflow:hidden;background:var(--white);}
 #cloudCanvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
 .hero-content{position:relative;z-index:1;}
-.hero-eyebrow{font-size:0.72rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--mid);margin-bottom:28px;animation:fadeUp 1s 0.4s both;}
+.hero-eyebrow{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--mid);margin-bottom:28px;animation:fadeUp 1s 0.4s both;font-family:'Inter',sans-serif;font-weight:300;}
 .hero-rule{width:1px;height:60px;background:var(--border);margin:36px auto;animation:fadeUp 1s 0.8s both;}
-.hero-sub{font-size:0.80rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--mid);animation:fadeUp 1s 1s both;}
+.hero-sub{font-size:0.80rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--mid);animation:fadeUp 1s 1s both;font-family:'Inter',sans-serif;font-weight:300;}
 .hero-cta{margin-top:52px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;animation:fadeUp 1s 1.2s both;}
-.btn-dark{padding:14px 42px;background:var(--ink);color:var(--white);font-family:'Raleway',sans-serif;font-size:0.76rem;letter-spacing:0.22em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);transition:all 0.3s;}
+.btn-dark{padding:14px 42px;background:var(--ink);color:var(--white);font-family:'Inter',sans-serif;font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);transition:all 0.3s;}
 .btn-dark:hover{background:transparent;color:var(--ink);}
-.btn-outline{padding:14px 42px;background:transparent;color:var(--dim);font-family:'Raleway',sans-serif;font-size:0.76rem;letter-spacing:0.22em;text-transform:uppercase;text-decoration:none;border:1px solid var(--border);transition:all 0.3s;}
+.btn-outline{padding:14px 42px;background:transparent;color:var(--dim);font-family:'Inter',sans-serif;font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border:1px solid var(--border);transition:all 0.3s;}
 .btn-outline:hover{border-color:var(--ink);color:var(--ink);}
 .scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);font-size:0.66rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--mid);display:flex;flex-direction:column;align-items:center;gap:10px;animation:fadeUp 1s 1.4s both;}
 .scroll-hint::after{content:'';width:1px;height:36px;background:linear-gradient(to bottom,var(--mid),transparent);animation:scrollPulse 2.5s infinite;}
@@ -55,7 +55,7 @@ nav.scrolled .nav-logo img{height:30px;}
 .divider{width:100%;height:1px;background:var(--border);}
 
 #gallery{padding:100px 48px;max-width:100%;}
-.section-label{font-size:0.68rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--mid);display:flex;align-items:center;gap:14px;margin-bottom:48px;max-width:1320px;margin-left:auto;margin-right:auto;}
+.section-label{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--mid);display:flex;align-items:center;gap:14px;margin-bottom:48px;max-width:1320px;margin-left:auto;margin-right:auto;font-family:'Inter',sans-serif;font-weight:400;}
 .section-label::before{content:'';display:block;width:28px;height:1px;background:var(--mid);}
 
 .masonry{columns:3;column-gap:16px;max-width:1320px;margin:0 auto;}
@@ -79,10 +79,10 @@ nav.scrolled .nav-logo img{height:30px;}
 .lightbox-inner img{max-width:100%;max-height:74vh;object-fit:contain;box-shadow:0 20px 60px var(--shadow);}
 .lightbox-title{font-family:'Raleway',sans-serif;font-size:1.05rem;font-weight:300;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink);text-align:center;}
 .lightbox-meta{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--mid);text-align:center;}
-.lightbox-close{position:fixed;top:26px;right:36px;background:none;border:none;cursor:pointer;font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--mid);transition:color 0.3s;font-family:'Raleway',sans-serif;}
+.lightbox-close{position:fixed;top:26px;right:36px;background:none;border:none;cursor:pointer;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);transition:color 0.3s;font-family:'Inter',sans-serif;}
 .lightbox-close:hover{color:var(--ink);}
 .lightbox-nav{display:flex;gap:12px;align-items:center;}
-.lightbox-nav button{background:none;border:1px solid var(--border);cursor:pointer;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--mid);transition:all 0.3s;padding:8px 20px;font-family:'Raleway',sans-serif;}
+.lightbox-nav button{background:none;border:1px solid var(--border);cursor:pointer;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);transition:all 0.3s;padding:8px 20px;font-family:'Inter',sans-serif;}
 .lightbox-nav button:hover{color:var(--ink);border-color:var(--ink);}
 .lightbox-counter{font-size:0.66rem;letter-spacing:0.2em;color:var(--mid);min-width:60px;text-align:center;}
 
@@ -97,20 +97,20 @@ nav.scrolled .nav-logo img{height:30px;}
 
 .contact-form{display:flex;flex-direction:column;gap:18px;}
 .form-group{display:flex;flex-direction:column;gap:7px;}
-.form-group label{font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--mid);}
-.form-group input,.form-group textarea,.form-group select{background:var(--off);border:1px solid var(--border);color:var(--ink);padding:14px 16px;font-family:'Raleway',sans-serif;font-size:0.88rem;font-weight:300;letter-spacing:0.04em;outline:none;transition:border-color 0.3s;resize:none;}
+.form-group label{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);font-family:'Inter',sans-serif;font-weight:400;}
+.form-group input,.form-group textarea,.form-group select{background:var(--off);border:1px solid var(--border);color:var(--ink);padding:14px 16px;font-family:'Inter',sans-serif;font-size:0.88rem;font-weight:300;letter-spacing:0.01em;outline:none;transition:border-color 0.3s;resize:none;}
 .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--ink);}
 .form-group select option{background:var(--white);}
 .form-group textarea{min-height:120px;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
 @media(max-width:540px){.form-row{grid-template-columns:1fr;}}
-.btn-submit{padding:15px 42px;align-self:flex-start;background:var(--ink);color:var(--white);border:1px solid var(--ink);font-family:'Raleway',sans-serif;font-size:0.76rem;letter-spacing:0.22em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;}
+.btn-submit{padding:15px 42px;align-self:flex-start;background:var(--ink);color:var(--white);border:1px solid var(--ink);font-family:'Inter',sans-serif;font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;}
 .btn-submit:hover{background:transparent;color:var(--ink);}
 .form-success{display:none;padding:16px;border:1px solid var(--border);background:var(--off);font-size:0.78rem;letter-spacing:0.1em;color:var(--dim);text-align:center;}
 .form-success.show{display:block;}
 
 footer{border-top:1px solid var(--border);padding:36px 52px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
-.footer-copy{font-size:0.65rem;letter-spacing:0.18em;color:var(--mid);}
+.footer-copy{font-size:0.65rem;letter-spacing:0.1em;color:var(--mid);font-family:'Inter',sans-serif;}
 
 .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.75s ease,transform 0.75s ease;}
 .reveal.visible{opacity:1;transform:none;}
@@ -126,11 +126,14 @@ footer{border-top:1px solid var(--border);padding:36px 52px;display:flex;align-i
 
 <nav id="navbar">
   <a href="#hero" class="nav-logo"><img src="signature.png" alt="Colin Mearns"/></a>
-  <ul class="nav-links">
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#about-contact">About</a></li>
-    <li><a href="#about-contact">Contact</a></li>
-  </ul>
+  <div style="display:flex;align-items:center;gap:40px;">
+    <ul class="nav-links">
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about-contact">About</a></li>
+      <li><a href="#about-contact">Contact</a></li>
+    </ul>
+    <span style="font-family:'Inter',sans-serif;font-weight:300;font-size:0.70rem;letter-spacing:0.20em;text-transform:uppercase;color:var(--mid);white-space:nowrap;">Colin Mearns</span>
+  </div>
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </nav>
 
@@ -286,18 +289,19 @@ function submitForm(e){e.preventDefault();document.getElementById('formSuccess')
       for(let i=0;i<puffsInLayer;i++){
         const angle=(i/puffsInLayer)*Math.PI*2+rand(-0.3,0.3);
         const spread=layer===layers-1?layerWidth*0.9:layerWidth*0.6;
+        // Stone-in-pond ripple params — 4 concentric wave frequencies
         ps.push({
           ox:Math.cos(angle)*spread*rand(0.4,1.0),
           oy:layerY+Math.sin(angle)*spread*0.25+rand(-20,20),
           r:puffR,
-          w:rand(0,Math.PI*2),
-          ws:rand(0.0002,0.0008),
-          // ink bleed ripple — multiple slow waves
-          rw:rand(0,Math.PI*2), rs:rand(0.004,0.012), ra:rand(3,7),
-          rw2:rand(0,Math.PI*2), rs2:rand(0.007,0.018), ra2:rand(1.5,4),
-          rw3:rand(0,Math.PI*2), rs3:rand(0.002,0.006), ra3:rand(2,5),
-          // each puff slowly grows and shrinks like ink absorbing into paper
-          gr:rand(0,Math.PI*2), gs:rand(0.003,0.009),
+          w:rand(0,Math.PI*2), ws:rand(0.0002,0.0007),
+          // 4 ripple waves — different speeds & amplitudes like concentric rings
+          r1:rand(0,Math.PI*2), s1:rand(0.005,0.011), a1:rand(3.5,7.0),
+          r2:rand(0,Math.PI*2), s2:rand(0.009,0.018), a2:rand(2.0,5.0),
+          r3:rand(0,Math.PI*2), s3:rand(0.003,0.007), a3:rand(1.5,3.5),
+          r4:rand(0,Math.PI*2), s4:rand(0.015,0.025), a4:rand(0.8,2.0),
+          // breathing — ink soaking into paper fibres
+          gr:rand(0,Math.PI*2), gs:rand(0.002,0.007),
           layer:layer, layerFrac:layerFrac
         });
       }
@@ -309,14 +313,14 @@ function submitForm(e){e.preventDefault();document.getElementById('formSuccess')
     const side=Math.random()<0.5?-1:1;
     clouds.push({
       x:fs?(side<0?-W*0.4:W*1.4):rand(-W*0.25,W*1.25),
-      y:rand(H*0.25,H*0.78),
-      vx:rand(0.02,0.08)*(Math.random()<0.5?1:-1),
+      y:rand(H*0.20,H*0.82),
+      vx:rand(0.02,0.07)*(Math.random()<0.5?1:-1),
       puffs:makePuffs(),
       maxOp:rand(0.10,0.20),
       opacity:0,
       age:fs?0:rand(0,600),
-      fadeIn:rand(250,550),
-      scale:rand(1.0,2.0),
+      fadeIn:rand(280,580),
+      scale:rand(1.0,2.1),
       dead:false
     });
   }
@@ -333,56 +337,71 @@ function submitForm(e){e.preventDefault();document.getElementById('formSuccess')
     cl.puffs.forEach(p=>{
       const lf=p.layerFrac||0;
 
-      // Ink bleed ripple — three overlapping waves give pond/bleed feel
-      const ripX = p.ra *Math.sin(t*p.rs +p.rw)
-                 + p.ra2*Math.sin(t*p.rs2+p.rw2)*0.6
-                 + p.ra3*Math.cos(t*p.rs3+p.rw3)*0.35;
-      const ripY = p.ra *Math.cos(t*p.rs *0.7+p.rw)
-                 + p.ra2*Math.cos(t*p.rs2*0.8+p.rw2)*0.5
-                 + p.ra3*Math.sin(t*p.rs3*0.5+p.rw3)*0.3;
+      // Stone-in-pond: 4 sine waves at different frequencies
+      // They add and subtract creating interference pattern — concentric ring feel
+      const ripX = p.a1*Math.sin(t*p.s1+p.r1)
+                 + p.a2*Math.sin(t*p.s2+p.r2)
+                 - p.a3*Math.sin(t*p.s3+p.r3+1.2)
+                 + p.a4*Math.cos(t*p.s4+p.r4);
+      const ripY = p.a1*Math.cos(t*p.s1*0.75+p.r1)
+                 + p.a2*Math.cos(t*p.s2*0.85+p.r2)
+                 - p.a3*Math.cos(t*p.s3*0.6+p.r3)
+                 + p.a4*Math.sin(t*p.s4*0.9+p.r4);
 
-      // Radius breathes — ink soaking into paper, expanding and contracting
-      const breathe = 1 + 0.06*Math.sin(t*p.gs+p.gr) + 0.03*Math.sin(t*p.gs*2.1+p.gr);
-      const r = p.r * breathe;
+      // Radius breathes with interference — ink expanding unevenly
+      const breathe = 1
+        + 0.07*Math.sin(t*p.gs+p.gr)
+        + 0.04*Math.sin(t*p.gs*1.7+p.gr+0.8)
+        + 0.02*Math.cos(t*p.s3+p.r3);
+      const r=p.r*breathe;
 
-      const px=p.ox+Math.sin(t*p.ws+p.w)*1.2+ripX;
-      const py=p.oy+Math.cos(t*p.ws*0.5+p.w)*0.7+ripY;
+      const px=p.ox+Math.sin(t*p.ws+p.w)*1.0+ripX;
+      const py=p.oy+Math.cos(t*p.ws*0.5+p.w)*0.6+ripY;
 
-      // INK BLEED layers — dark feathered edges, pale wet centre, like ink on watercolour paper
+      // DEPTH LAYERS — ink bleeding through paper, 5 layers of depth
 
-      // Outermost feather — very faint, wide spread, ink wicking along paper fibres
-      const gOut=ctx.createRadialGradient(px,py,r*0.6,px,py,r*1.6);
-      gOut.addColorStop(0,`rgba(90,95,115,${op*0.18})`);
-      gOut.addColorStop(0.5,`rgba(100,105,125,${op*0.08})`);
-      gOut.addColorStop(1,`rgba(110,115,135,0)`);
-      ctx.fillStyle=gOut;
-      ctx.beginPath();ctx.arc(px,py,r*1.6,0,Math.PI*2);ctx.fill();
+      // 1. Furthest bleed — ghostly outer halo, ink wicking along fibres
+      const gHalo=ctx.createRadialGradient(px,py,r*0.8,px,py,r*2.1);
+      gHalo.addColorStop(0,`rgba(85,90,112,${op*0.10})`);
+      gHalo.addColorStop(0.5,`rgba(92,97,120,${op*0.05})`);
+      gHalo.addColorStop(1,`rgba(100,105,128,0)`);
+      ctx.fillStyle=gHalo;
+      ctx.beginPath();ctx.arc(px,py,r*2.1,0,Math.PI*2);ctx.fill();
 
-      // Mid bleed ring — where ink has travelled
-      const gMid=ctx.createRadialGradient(px-r*0.1,py-r*0.1,r*0.2,px,py,r*1.05);
-      gMid.addColorStop(0,`rgba(130,135,155,${op*0.55})`);
-      gMid.addColorStop(0.45,`rgba(120,126,148,${op*0.45})`);
-      gMid.addColorStop(0.75,`rgba(110,116,140,${op*0.22})`);
-      gMid.addColorStop(1,`rgba(105,112,138,0)`);
+      // 2. Outer bleed ring — darker edge where ink concentrates
+      const gOuter=ctx.createRadialGradient(px,py,r*0.5,px,py,r*1.45);
+      gOuter.addColorStop(0,`rgba(95,100,125,${op*0.22})`);
+      gOuter.addColorStop(0.6,`rgba(105,110,135,${op*0.18})`);
+      gOuter.addColorStop(1,`rgba(115,120,145,0)`);
+      ctx.fillStyle=gOuter;
+      ctx.beginPath();ctx.arc(px,py,r*1.45,0,Math.PI*2);ctx.fill();
+
+      // 3. Mid body — the main ink mass
+      const gMid=ctx.createRadialGradient(px-r*0.12,py-r*0.12,r*0.05,px+r*0.05,py+r*0.05,r);
+      const d=Math.round(115+lf*25);
+      gMid.addColorStop(0,  `rgba(${d+8},${d+12},${d+30},${op*0.70})`);
+      gMid.addColorStop(0.45,`rgba(${d},${d+5},${d+22},${op*0.52})`);
+      gMid.addColorStop(0.78,`rgba(${d-10},${d-6},${d+12},${op*0.28})`);
+      gMid.addColorStop(1,  `rgba(${d-18},${d-14},${d+5},0)`);
       ctx.fillStyle=gMid;
-      ctx.beginPath();ctx.arc(px,py,r*1.05,0,Math.PI*2);ctx.fill();
+      ctx.beginPath();ctx.arc(px,py,r,0,Math.PI*2);ctx.fill();
 
-      // Core — pale wet centre, ink pushed outward, lighter in middle
-      const gCore=ctx.createRadialGradient(px-r*0.18,py-r*0.2,0,px,py,r*0.7);
-      const cLight=200+lf*20;
-      gCore.addColorStop(0,`rgba(${cLight},${cLight+2},${cLight+12},${op*0.75})`);
-      gCore.addColorStop(0.5,`rgba(${cLight-15},${cLight-12},${cLight+5},${op*0.55})`);
-      gCore.addColorStop(1,`rgba(${cLight-30},${cLight-26},${cLight-5},0)`);
-      ctx.fillStyle=gCore;
-      ctx.beginPath();ctx.arc(px,py,r*0.7,0,Math.PI*2);ctx.fill();
+      // 4. Inner pale zone — wet centre, ink pushed to edges by surface tension
+      const gInner=ctx.createRadialGradient(px-r*0.15,py-r*0.18,0,px,py,r*0.6);
+      const c=Math.round(195+lf*18);
+      gInner.addColorStop(0,`rgba(${c},${c+2},${c+15},${op*0.62})`);
+      gInner.addColorStop(0.55,`rgba(${c-12},${c-8},${c+8},${op*0.40})`);
+      gInner.addColorStop(1,`rgba(${c-25},${c-20},${c-2},0)`);
+      ctx.fillStyle=gInner;
+      ctx.beginPath();ctx.arc(px,py,r*0.6,0,Math.PI*2);ctx.fill();
 
-      // Highlight — wet paper sheen, off-white, top of puff
-      const hlOp=op*(0.3+lf*0.25);
-      const gHL=ctx.createRadialGradient(px-r*0.22,py-r*0.28,0,px,py,r*0.42);
-      gHL.addColorStop(0,`rgba(232,234,238,${hlOp})`);
-      gHL.addColorStop(1,`rgba(225,228,234,0)`);
+      // 5. Surface sheen — wet paper highlight, very top
+      const hlOp=op*(0.28+lf*0.20);
+      const gHL=ctx.createRadialGradient(px-r*0.24,py-r*0.30,0,px-r*0.05,py-r*0.08,r*0.38);
+      gHL.addColorStop(0,`rgba(238,240,245,${hlOp})`);
+      gHL.addColorStop(1,`rgba(230,233,240,0)`);
       ctx.fillStyle=gHL;
-      ctx.beginPath();ctx.arc(px-r*0.08,py-r*0.12,r*0.42,0,Math.PI*2);ctx.fill();
+      ctx.beginPath();ctx.arc(px-r*0.08,py-r*0.12,r*0.38,0,Math.PI*2);ctx.fill();
     });
 
     ctx.restore();
@@ -400,7 +419,7 @@ function submitForm(e){e.preventDefault();document.getElementById('formSuccess')
     if(clouds.length<6)for(let i=0;i<3;i++)spawnCloud(true);
   }
 
-  function frame(){ctx.clearRect(0,0,W,H);clouds.forEach(drawCloud);update();t+=0.25;requestAnimationFrame(frame);}
+  function frame(){ctx.clearRect(0,0,W,H);clouds.forEach(drawCloud);update();t+=0.22;requestAnimationFrame(frame);}
   new ResizeObserver(resize).observe(document.getElementById('hero'));
   resize();frame();
 })();
