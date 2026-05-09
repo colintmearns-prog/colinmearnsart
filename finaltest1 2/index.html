@@ -314,7 +314,7 @@ function submitForm(e){e.preventDefault();document.getElementById('formSuccess')
     clouds.push({
       x:fs?(side<0?-W*0.4:W*1.4):rand(-W*0.25,W*1.25),
       y:rand(H*0.20,H*0.82),
-      vx:rand(0.02,0.07)*(Math.random()<0.5?1:-1),
+      vx:rand(0.05,0.14)*(Math.random()<0.5?1:-1),
       puffs:makePuffs(),
       maxOp:rand(0.10,0.20),
       opacity:0,
@@ -419,7 +419,7 @@ function submitForm(e){e.preventDefault();document.getElementById('formSuccess')
     if(clouds.length<6)for(let i=0;i<3;i++)spawnCloud(true);
   }
 
-  function frame(){ctx.clearRect(0,0,W,H);clouds.forEach(drawCloud);update();t+=0.22;requestAnimationFrame(frame);}
+  function frame(){ctx.clearRect(0,0,W,H);clouds.forEach(drawCloud);update();t+=0.38;requestAnimationFrame(frame);}
   new ResizeObserver(resize).observe(document.getElementById('hero'));
   resize();frame();
 })();
