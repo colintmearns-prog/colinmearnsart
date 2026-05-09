@@ -172,6 +172,9 @@ footer{border-top:1px solid var(--border);padding:36px 52px;position:relative;z-
 
 <div id="gallery">
 
+    <div class="section-header reveal" style="max-width:1320px;margin:0 auto 40px;padding:0 48px;">
+    <p class="section-label">Works</p>
+  </div>
   <div class="masonry" id="masonry">
     <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p1.jpg" onclick="openLightbox(this)"><img src="p1.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
     <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p2.jpg" onclick="openLightbox(this)"><img src="p2.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
@@ -297,90 +300,120 @@ function submitForm(e){e.preventDefault();document.getElementById('formSuccess')
   const ctx=cv.getContext('2d');
   let W,H,t=0,clouds=[];
   function rand(a,b){return a+Math.random()*(b-a);}
+
   function resize(){
     W=window.innerWidth;H=window.innerHeight;
     cv.width=W;cv.height=H;
-    if(!clouds.length)for(let i=0;i<10;i++)spawnCloud(false);
+    if(!clouds.length)for(let i=0;i<12;i++)spawnCloud(false);
   }
+
   function makePuffs(){
     const ps=[];
-    const layers=Math.floor(rand(5,9));
-    for(let layer=0;layer<layers;layer++){
-      const layerFrac=layer/layers;
-      const puffsInLayer=layer===0?3:layer===layers-1?Math.floor(rand(4,7)):Math.floor(rand(2,5));
-      const layerY=-layerFrac*rand(200,320);
-      const layerWidth=layer===0?120:layer<layers-1?80+layerFrac*40:60+layerFrac*80;
-      const puffR=layer===0?rand(55,85):layer===layers-1?rand(35,75):rand(40,70);
-      for(let i=0;i<puffsInLayer;i++){
-        const angle=(i/puffsInLayer)*Math.PI*2+rand(-0.3,0.3);
-        const spread=layer===layers-1?layerWidth*0.9:layerWidth*0.6;
-        ps.push({
-          ox:Math.cos(angle)*spread*rand(0.4,1.0),
-          oy:layerY+Math.sin(angle)*spread*0.25+rand(-20,20),
-          r:puffR,
-          w:rand(0,Math.PI*2),
-          ws:rand(0.0003,0.0015),
-          layer:layer,
-          layerFrac:layerFrac
-        });
-      }
+    const n=Math.floor(rand(10,20));
+    let ax=0,ay=0;
+    for(let i=0;i<n;i++){
+      ax+=rand(-30,70)*(Math.random()<0.5?1:-1);
+      ay+=rand(-8,8);
+      ps.push({
+        ox:ax, oy:ay-rand(0,35),
+        r:rand(45,120),
+        w:rand(0,Math.PI*2),
+        ws:rand(0.0001,0.0006),
+        // pond ripple params — each puff has multiple ripple frequencies
+        r1:rand(0,Math.PI*2), s1:rand(0.008,0.018),
+        r2:rand(0,Math.PI*2), s2:rand(0.012,0.025),
+        r3:rand(0,Math.PI*2), s3:rand(0.005,0.011),
+        amp:rand(2.5,6.0)
+      });
     }
     return ps;
   }
+
   function spawnCloud(fs){
     const side=Math.random()<0.5?-1:1;
-    // Spread across full page height not just 35-75%
     clouds.push({
-      x:fs?(side<0?-W*0.4:W*1.4):rand(-W*0.25,W*1.25),
-      y:rand(H*0.05,H*0.92),
-      vx:rand(0.03,0.10)*(Math.random()<0.5?1:-1),
+      x:fs?(side<0?-W*0.35:W*1.35):rand(-W*0.1,W*1.1),
+      y:rand(-H*0.02,H*1.02),
+      vx:rand(0.02,0.08)*(Math.random()<0.5?1:-1),
+      vy:rand(-0.003,0.003),
       puffs:makePuffs(),
-      maxOp:rand(0.11,0.22),
+      maxOp:rand(0.07,0.16),
       opacity:0,
       age:fs?0:rand(0,600),
-      fadeIn:rand(200,420),
-      scale:rand(1.0,2.0),
+      fadeIn:rand(220,500),
+      scale:rand(0.9,2.1),
       dead:false
     });
   }
+
+  function drawPuff(px,py,r,op){
+    if(op<0.003)return;
+    // Soft shadow base
+    const gs=ctx.createRadialGradient(px,py+r*0.12,r*0.08,px,py,r*1.08);
+    gs.addColorStop(0,`rgba(148,152,160,${op*0.45})`);
+    gs.addColorStop(1,`rgba(155,158,165,0)`);
+    ctx.fillStyle=gs;ctx.beginPath();ctx.arc(px,py+r*0.08,r*1.08,0,Math.PI*2);ctx.fill();
+    // Main body — lit top left
+    const g=ctx.createRadialGradient(px-r*0.2,py-r*0.22,r*0.04,px+r*0.08,py+r*0.08,r);
+    g.addColorStop(0,  `rgba(208,211,218,${op*0.92})`);
+    g.addColorStop(0.4,`rgba(192,196,204,${op*0.68})`);
+    g.addColorStop(0.75,`rgba(178,182,192,${op*0.38})`);
+    g.addColorStop(1,  `rgba(168,172,183,0)`);
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(px,py,r,0,Math.PI*2);ctx.fill();
+    // Bright highlight
+    const gh=ctx.createRadialGradient(px-r*0.25,py-r*0.28,0,px-r*0.08,py-r*0.08,r*0.46);
+    gh.addColorStop(0,`rgba(232,235,240,${op*0.72})`);
+    gh.addColorStop(1,`rgba(222,226,232,0)`);
+    ctx.fillStyle=gh;ctx.beginPath();ctx.arc(px-r*0.1,py-r*0.12,r*0.46,0,Math.PI*2);ctx.fill();
+  }
+
   function drawCloud(cl){
     let op=cl.opacity;
-    const ef=Math.min(cl.x/(W*0.1),(W-cl.x)/(W*0.1),1);
+    const ef=Math.min(cl.x/(W*0.08),(W-cl.x)/(W*0.08),1);
     op*=Math.max(0,Math.min(1,ef));
     if(op<0.003)return;
     ctx.save();
     ctx.translate(cl.x,cl.y);
-    ctx.scale(cl.scale,cl.scale*0.78);
+    ctx.scale(cl.scale,cl.scale*0.55);
     cl.puffs.forEach(p=>{
-      const px=p.ox+Math.sin(t*p.ws+p.w)*1.5;
-      const py=p.oy+Math.cos(t*p.ws*0.5+p.w)*0.8;
-      const lf=p.layerFrac||0;
-      const shadowOp=op*(0.5-lf*0.25);
-      const g0=ctx.createRadialGradient(px,py+p.r*0.2,p.r*0.2,px,py,p.r*1.15);
-      g0.addColorStop(0,`rgba(110,118,148,${shadowOp})`);
-      g0.addColorStop(1,`rgba(120,128,158,0)`);
-      ctx.fillStyle=g0;ctx.beginPath();ctx.arc(px,py+p.r*0.12,p.r*1.15,0,Math.PI*2);ctx.fill();
-      const bl=175+lf*30;
-      const g1=ctx.createRadialGradient(px-p.r*0.22,py-p.r*0.28,p.r*0.04,px,py,p.r);
-      g1.addColorStop(0,`rgba(${Math.round(bl-15)},${Math.round(bl-5)},${Math.round(bl+28)},${op*0.80})`);
-      g1.addColorStop(0.55,`rgba(${Math.round(bl-22)},${Math.round(bl-10)},${Math.round(bl+18)},${op*0.55})`);
-      g1.addColorStop(1,`rgba(110,118,165,0)`);
-      ctx.fillStyle=g1;ctx.beginPath();ctx.arc(px,py,p.r,0,Math.PI*2);ctx.fill();
-      const hlOp=op*(0.4+lf*0.35);
-      const g2=ctx.createRadialGradient(px-p.r*0.28,py-p.r*0.32,0,px-p.r*0.1,py-p.r*0.15,p.r*0.5);
-      g2.addColorStop(0,`rgba(215,220,240,${hlOp})`);
-      g2.addColorStop(1,`rgba(200,210,235,0)`);
-      ctx.fillStyle=g2;ctx.beginPath();ctx.arc(px-p.r*0.1,py-p.r*0.15,p.r*0.5,0,Math.PI*2);ctx.fill();
+      // Pond ripple — three overlapping sine waves create concentric ring feel
+      const ripX = p.amp*Math.sin(t*p.s1+p.r1)
+                 + p.amp*0.6*Math.sin(t*p.s2+p.r2)
+                 + p.amp*0.3*Math.sin(t*p.s3+p.r3);
+      const ripY = p.amp*Math.cos(t*p.s1*0.7+p.r1)
+                 + p.amp*0.5*Math.cos(t*p.s2*0.8+p.r2)
+                 + p.amp*0.25*Math.cos(t*p.s3*0.6+p.r3);
+      // Radius also pulses — cloud surface breathes like rippling water
+      const wobR=p.r*(1
+        +0.05*Math.sin(t*p.s1+p.r1)
+        +0.03*Math.sin(t*p.s2*1.3+p.r2)
+      );
+      const px=p.ox+ripX;
+      const py=p.oy+ripY;
+      drawPuff(px,py,wobR,op);
     });
     ctx.restore();
   }
+
   function update(){
-    clouds.forEach(cl=>{cl.x+=cl.vx;cl.age++;if(cl.age<cl.fadeIn)cl.opacity=(cl.age/cl.fadeIn)*cl.maxOp;else cl.opacity=cl.maxOp;if(cl.x<-W*0.55||cl.x>W*1.55)cl.dead=true;});
+    clouds.forEach(cl=>{
+      cl.x+=cl.vx;cl.y+=cl.vy;cl.age++;
+      if(cl.age<cl.fadeIn)cl.opacity=(cl.age/cl.fadeIn)*cl.maxOp;
+      else cl.opacity=cl.maxOp;
+      if(cl.x<-W*0.6||cl.x>W*1.6)cl.dead=true;
+    });
     clouds=clouds.filter(c=>!c.dead);
-    if(Math.random()<0.01&&clouds.length<16)spawnCloud(true);
+    if(Math.random()<0.012&&clouds.length<18)spawnCloud(true);
     if(clouds.length<6)for(let i=0;i<3;i++)spawnCloud(true);
   }
-  function frame(){ctx.clearRect(0,0,W,H);clouds.forEach(drawCloud);update();t+=0.3;requestAnimationFrame(frame);}
+
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    clouds.forEach(drawCloud);
+    update();
+    t+=0.28;
+    requestAnimationFrame(frame);
+  }
   window.addEventListener('resize',resize);
   resize();frame();
 })();
