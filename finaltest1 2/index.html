@@ -55,8 +55,14 @@ nav.scrolled .nav-logo img{height:38px;}
 .divider{width:100%;height:1px;background:var(--border);}
 
 #gallery{padding:100px 48px;max-width:100%;}
-.section-label{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--mid);display:flex;align-items:center;gap:14px;margin-bottom:48px;max-width:1320px;margin-left:auto;margin-right:auto;font-family:'Inter',sans-serif;font-weight:400;}
+.section-label{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--mid);display:flex;align-items:center;gap:14px;margin-bottom:28px;max-width:1320px;margin-left:auto;margin-right:auto;font-family:'Inter',sans-serif;font-weight:400;}
 .section-label::before{content:'';display:block;width:28px;height:1px;background:var(--mid);}
+
+.section-buttons{display:flex;gap:10px;max-width:1320px;margin:0 auto 44px;flex-wrap:wrap;}
+.section-btn{padding:10px 28px;border:1px solid var(--ink);background:var(--ink);color:var(--white);font-family:'Inter',sans-serif;font-size:0.70rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;transition:all 0.3s;cursor:pointer;}
+.section-btn:hover{background:transparent;color:var(--ink);}
+.section-btn.outline{background:transparent;color:var(--dim);border-color:var(--border);}
+.section-btn.outline:hover{border-color:var(--ink);color:var(--ink);}
 
 .masonry{columns:3;column-gap:16px;max-width:1320px;margin:0 auto;}
 @media(max-width:900px){.masonry{columns:2;}}
@@ -70,21 +76,21 @@ nav.scrolled .nav-logo img{height:38px;}
 .art-card:hover .art-card-overlay{opacity:1;}
 .art-info{transform:translateY(6px);transition:transform 0.35s;}
 .art-card:hover .art-info{transform:none;}
-.art-title{font-family:'Raleway',sans-serif;font-size:0.88rem;font-weight:300;letter-spacing:0.1em;text-transform:uppercase;color:#fdf8f2;}
-.art-meta{font-size:0.66rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(253,248,242,0.62);margin-top:4px;}
+.art-title{font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:300;letter-spacing:0.08em;text-transform:uppercase;color:#fdf8f2;}
+.art-meta{font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(253,248,242,0.62);margin-top:4px;}
 
 .lightbox{position:fixed;inset:0;z-index:200;background:rgba(253,248,242,0.97);display:none;align-items:center;justify-content:center;padding:40px;}
 .lightbox.open{display:flex;}
 .lightbox-inner{max-width:90vw;max-height:90vh;display:flex;flex-direction:column;align-items:center;gap:16px;}
 .lightbox-inner img{max-width:100%;max-height:74vh;object-fit:contain;box-shadow:0 20px 60px var(--shadow);}
-.lightbox-title{font-family:'Raleway',sans-serif;font-size:1.05rem;font-weight:300;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink);text-align:center;}
-.lightbox-meta{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--mid);text-align:center;}
-.lightbox-close{position:fixed;top:26px;right:36px;background:none;border:none;cursor:pointer;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);transition:color 0.3s;font-family:'Inter',sans-serif;}
+.lightbox-title{font-family:'Inter',sans-serif;font-size:1rem;font-weight:300;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);text-align:center;}
+.lightbox-meta{font-size:0.66rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--mid);text-align:center;}
+.lightbox-close{position:fixed;top:26px;right:36px;background:none;border:none;cursor:pointer;font-size:0.70rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);transition:color 0.3s;font-family:'Inter',sans-serif;}
 .lightbox-close:hover{color:var(--ink);}
 .lightbox-nav{display:flex;gap:12px;align-items:center;}
-.lightbox-nav button{background:none;border:1px solid var(--border);cursor:pointer;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);transition:all 0.3s;padding:8px 20px;font-family:'Inter',sans-serif;}
+.lightbox-nav button{background:none;border:1px solid var(--border);cursor:pointer;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);transition:all 0.3s;padding:8px 20px;font-family:'Inter',sans-serif;}
 .lightbox-nav button:hover{color:var(--ink);border-color:var(--ink);}
-.lightbox-counter{font-size:0.66rem;letter-spacing:0.2em;color:var(--mid);min-width:60px;text-align:center;}
+.lightbox-counter{font-size:0.64rem;letter-spacing:0.18em;color:var(--mid);min-width:60px;text-align:center;}
 
 #about-contact{display:grid;grid-template-columns:1fr 1fr;gap:80px;max-width:1320px;margin:0 auto;padding:100px 48px;}
 @media(max-width:820px){#about-contact{grid-template-columns:1fr;gap:56px;}}
@@ -120,12 +126,6 @@ footer{border-top:1px solid var(--border);padding:36px 52px;display:flex;align-i
   .nav-links{display:none;}.hamburger{display:flex;}
   #gallery{padding:72px 20px;}#about-contact{padding:72px 24px;}footer{padding:28px 24px;}
 }
-
-.filter-tabs{display:flex;gap:8px;max-width:1320px;margin:0 auto 40px;flex-wrap:wrap;}
-.filter-tab{padding:9px 24px;border:1px solid var(--border);background:transparent;color:var(--mid);font-family:'Inter',sans-serif;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;transition:all 0.25s;}
-.filter-tab:hover,.filter-tab.active{border-color:var(--ink);color:var(--ink);}
-.filter-tab.active{background:var(--ink);color:var(--white);}
-.art-card.hidden{display:none;}
 </style>
 </head>
 <body>
@@ -134,7 +134,7 @@ footer{border-top:1px solid var(--border);padding:36px 52px;display:flex;align-i
   <a href="#hero" class="nav-logo"><img src="signature.png" alt="Colin Mearns"/></a>
   <div style="display:flex;align-items:center;gap:40px;">
     <ul class="nav-links">
-      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#gallery">Paintings</a></li>
       <li><a href="#drawings">Drawings</a></li>
       <li><a href="#about-contact">About</a></li>
       <li><a href="#about-contact">Contact</a></li>
@@ -146,7 +146,8 @@ footer{border-top:1px solid var(--border);padding:36px 52px;display:flex;align-i
 
 <div class="mobile-menu" id="mobileMenu">
   <img src="signature.png" alt="Colin Mearns" style="height:60px;width:auto;opacity:0.85;margin-bottom:12px;"/>
-  <a href="#gallery" class="mobile-link">Gallery</a>
+  <a href="#gallery" class="mobile-link">Paintings</a>
+  <a href="#drawings" class="mobile-link">Drawings</a>
   <a href="#about-contact" class="mobile-link">About</a>
   <a href="#about-contact" class="mobile-link">Contact</a>
 </div>
@@ -171,60 +172,65 @@ footer{border-top:1px solid var(--border);padding:36px 52px;display:flex;align-i
 <div class="divider"></div>
 
 <div id="gallery">
-  <p class="section-label reveal">Works</p>
-  <div class="filter-tabs">
-    <button class="filter-tab active" onclick="filterGallery('all', this)">All Paintings</button>
+  <p class="section-label reveal">Paintings</p>
+  <div class="section-buttons">
+    <a href="#gallery" class="section-btn">Paintings</a>
+    <a href="#drawings" class="section-btn outline">Drawings</a>
   </div>
   <div class="masonry" id="masonry">
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="0A82E16E-25A5-4898-9E46-3E2E8D41A365_1_201_a.jpeg" onclick="openLightbox(this)"><img src="0A82E16E-25A5-4898-9E46-3E2E8D41A365_1_201_a.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="20377D57-666E-4E99-B4BF-9861DFBBBA93_1_102_a.jpeg" onclick="openLightbox(this)"><img src="20377D57-666E-4E99-B4BF-9861DFBBBA93_1_102_a.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="3AF531BD-9DE8-4D2A-98E4-F0C81302F561_1_105_c.jpeg" onclick="openLightbox(this)"><img src="3AF531BD-9DE8-4D2A-98E4-F0C81302F561_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="44292CAC-9E13-46D4-8824-F0B0007045DB.jpeg" onclick="openLightbox(this)"><img src="44292CAC-9E13-46D4-8824-F0B0007045DB.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="697BEBD7-BFC4-454A-A460-AB1BACD09152_1_105_c.jpeg" onclick="openLightbox(this)"><img src="697BEBD7-BFC4-454A-A460-AB1BACD09152_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="71FC66D9-E19B-40D7-94DF-2FEBB20E48C0_1_105_c (1).jpeg" onclick="openLightbox(this)"><img src="71FC66D9-E19B-40D7-94DF-2FEBB20E48C0_1_105_c (1).jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="71FC66D9-E19B-40D7-94DF-2FEBB20E48C0_1_105_c.jpeg" onclick="openLightbox(this)"><img src="71FC66D9-E19B-40D7-94DF-2FEBB20E48C0_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="7458BC4E-1496-46E2-A9E2-0D0E63B7B4C0.jpeg" onclick="openLightbox(this)"><img src="7458BC4E-1496-46E2-A9E2-0D0E63B7B4C0.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="8851D2DC-7FEE-44E5-B83B-59D05C903359.jpeg" onclick="openLightbox(this)"><img src="8851D2DC-7FEE-44E5-B83B-59D05C903359.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="8C534E2B-B411-44B0-8CF0-711D93E2C617_1_105_c.jpeg" onclick="openLightbox(this)"><img src="8C534E2B-B411-44B0-8CF0-711D93E2C617_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="93ADED3E-30B0-48C7-8831-FCD41A7FC7DC_1_105_c.jpeg" onclick="openLightbox(this)"><img src="93ADED3E-30B0-48C7-8831-FCD41A7FC7DC_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="C2D8FDA0-4D3C-4F70-B516-CBA1C2005A87_1_105_c.jpeg" onclick="openLightbox(this)"><img src="C2D8FDA0-4D3C-4F70-B516-CBA1C2005A87_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="C3056C5E-DBC8-4820-9260-D9BC23978253.jpeg" onclick="openLightbox(this)"><img src="C3056C5E-DBC8-4820-9260-D9BC23978253.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="E297F1AA-05AB-44C6-A5D9-E75521CFAD9E_1_105_c.jpeg" onclick="openLightbox(this)"><img src="E297F1AA-05AB-44C6-A5D9-E75521CFAD9E_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="EE7E1EED-7538-4EB3-BB60-5C103098834D.jpeg" onclick="openLightbox(this)"><img src="EE7E1EED-7538-4EB3-BB60-5C103098834D.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="EF26B946-6556-49E8-A001-D9885EC9D7B7_1_105_c.jpeg" onclick="openLightbox(this)"><img src="EF26B946-6556-49E8-A001-D9885EC9D7B7_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="IMG_5266.jpeg" onclick="openLightbox(this)"><img src="IMG_5266.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="IMG_9117.jpeg" onclick="openLightbox(this)"><img src="IMG_9117.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="IMG_9126.jpeg" onclick="openLightbox(this)"><img src="IMG_9126.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="IMG_9128.jpeg" onclick="openLightbox(this)"><img src="IMG_9128.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p1.jpg" onclick="openLightbox(this)"><img src="p1.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p2.jpg" onclick="openLightbox(this)"><img src="p2.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p3.jpg" onclick="openLightbox(this)"><img src="p3.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p4.jpg" onclick="openLightbox(this)"><img src="p4.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p5.jpg" onclick="openLightbox(this)"><img src="p5.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p7.jpg" onclick="openLightbox(this)"><img src="p7.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p9.jpg" onclick="openLightbox(this)"><img src="p9.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p10.jpg" onclick="openLightbox(this)"><img src="p10.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p11.jpg" onclick="openLightbox(this)"><img src="p11.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p12.jpg" onclick="openLightbox(this)"><img src="p12.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p13.jpg" onclick="openLightbox(this)"><img src="p13.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p18.jpg" onclick="openLightbox(this)"><img src="p18.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p21.jpg" onclick="openLightbox(this)"><img src="p21.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p22.jpg" onclick="openLightbox(this)"><img src="p22.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p28.jpg" onclick="openLightbox(this)"><img src="p28.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p29.jpg" onclick="openLightbox(this)"><img src="p29.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p35.jpg" onclick="openLightbox(this)"><img src="p35.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p38.jpg" onclick="openLightbox(this)"><img src="p38.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p39.jpg" onclick="openLightbox(this)"><img src="p39.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p40.jpg" onclick="openLightbox(this)"><img src="p40.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p41.jpg" onclick="openLightbox(this)"><img src="p41.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="0A82E16E-25A5-4898-9E46-3E2E8D41A365_1_201_a.jpeg" onclick="openLightbox(this)"><img src="0A82E16E-25A5-4898-9E46-3E2E8D41A365_1_201_a.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="20377D57-666E-4E99-B4BF-9861DFBBBA93_1_102_a.jpeg" onclick="openLightbox(this)"><img src="20377D57-666E-4E99-B4BF-9861DFBBBA93_1_102_a.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="3AF531BD-9DE8-4D2A-98E4-F0C81302F561_1_105_c.jpeg" onclick="openLightbox(this)"><img src="3AF531BD-9DE8-4D2A-98E4-F0C81302F561_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="44292CAC-9E13-46D4-8824-F0B0007045DB.jpeg" onclick="openLightbox(this)"><img src="44292CAC-9E13-46D4-8824-F0B0007045DB.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="697BEBD7-BFC4-454A-A460-AB1BACD09152_1_105_c.jpeg" onclick="openLightbox(this)"><img src="697BEBD7-BFC4-454A-A460-AB1BACD09152_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="71FC66D9-E19B-40D7-94DF-2FEBB20E48C0_1_105_c (1).jpeg" onclick="openLightbox(this)"><img src="71FC66D9-E19B-40D7-94DF-2FEBB20E48C0_1_105_c (1).jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="71FC66D9-E19B-40D7-94DF-2FEBB20E48C0_1_105_c.jpeg" onclick="openLightbox(this)"><img src="71FC66D9-E19B-40D7-94DF-2FEBB20E48C0_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="7458BC4E-1496-46E2-A9E2-0D0E63B7B4C0.jpeg" onclick="openLightbox(this)"><img src="7458BC4E-1496-46E2-A9E2-0D0E63B7B4C0.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="8851D2DC-7FEE-44E5-B83B-59D05C903359.jpeg" onclick="openLightbox(this)"><img src="8851D2DC-7FEE-44E5-B83B-59D05C903359.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="8C534E2B-B411-44B0-8CF0-711D93E2C617_1_105_c.jpeg" onclick="openLightbox(this)"><img src="8C534E2B-B411-44B0-8CF0-711D93E2C617_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="93ADED3E-30B0-48C7-8831-FCD41A7FC7DC_1_105_c.jpeg" onclick="openLightbox(this)"><img src="93ADED3E-30B0-48C7-8831-FCD41A7FC7DC_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="C2D8FDA0-4D3C-4F70-B516-CBA1C2005A87_1_105_c.jpeg" onclick="openLightbox(this)"><img src="C2D8FDA0-4D3C-4F70-B516-CBA1C2005A87_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="C3056C5E-DBC8-4820-9260-D9BC23978253.jpeg" onclick="openLightbox(this)"><img src="C3056C5E-DBC8-4820-9260-D9BC23978253.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="E297F1AA-05AB-44C6-A5D9-E75521CFAD9E_1_105_c.jpeg" onclick="openLightbox(this)"><img src="E297F1AA-05AB-44C6-A5D9-E75521CFAD9E_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="EE7E1EED-7538-4EB3-BB60-5C103098834D.jpeg" onclick="openLightbox(this)"><img src="EE7E1EED-7538-4EB3-BB60-5C103098834D.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="EF26B946-6556-49E8-A001-D9885EC9D7B7_1_105_c.jpeg" onclick="openLightbox(this)"><img src="EF26B946-6556-49E8-A001-D9885EC9D7B7_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="IMG_5266.jpeg" onclick="openLightbox(this)"><img src="IMG_5266.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="IMG_9117.jpeg" onclick="openLightbox(this)"><img src="IMG_9117.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="IMG_9126.jpeg" onclick="openLightbox(this)"><img src="IMG_9126.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="IMG_9128.jpeg" onclick="openLightbox(this)"><img src="IMG_9128.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p1.jpg" onclick="openLightbox(this)"><img src="p1.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p2.jpg" onclick="openLightbox(this)"><img src="p2.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p3.jpg" onclick="openLightbox(this)"><img src="p3.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p4.jpg" onclick="openLightbox(this)"><img src="p4.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p5.jpg" onclick="openLightbox(this)"><img src="p5.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p7.jpg" onclick="openLightbox(this)"><img src="p7.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p9.jpg" onclick="openLightbox(this)"><img src="p9.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p10.jpg" onclick="openLightbox(this)"><img src="p10.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p11.jpg" onclick="openLightbox(this)"><img src="p11.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p12.jpg" onclick="openLightbox(this)"><img src="p12.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p13.jpg" onclick="openLightbox(this)"><img src="p13.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p18.jpg" onclick="openLightbox(this)"><img src="p18.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p21.jpg" onclick="openLightbox(this)"><img src="p21.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p22.jpg" onclick="openLightbox(this)"><img src="p22.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p28.jpg" onclick="openLightbox(this)"><img src="p28.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p29.jpg" onclick="openLightbox(this)"><img src="p29.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p35.jpg" onclick="openLightbox(this)"><img src="p35.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p38.jpg" onclick="openLightbox(this)"><img src="p38.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p39.jpg" onclick="openLightbox(this)"><img src="p39.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p40.jpg" onclick="openLightbox(this)"><img src="p40.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p41.jpg" onclick="openLightbox(this)"><img src="p41.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
   </div>
 </div>
 
 <div class="divider"></div>
 
 <div id="drawings" style="padding:100px 48px;max-width:100%;">
-  <p class="section-label reveal" style="max-width:1320px;margin:0 auto 20px;display:flex;align-items:center;gap:14px;">Drawings</p>
-  <div class="masonry reveal" id="drawingsMasonry">
+  <p class="section-label reveal">Drawings</p>
+  <div class="section-buttons" style="max-width:1320px;margin:0 auto 44px;display:flex;gap:10px;">
+    <a href="#gallery" class="section-btn outline">Paintings</a>
+    <a href="#drawings" class="section-btn">Drawings</a>
+  </div>
+  <div class="masonry" id="drawingsMasonry">
     <div class="art-card reveal" data-title="Untitled" data-meta="Drawing" data-src="IMG_0484.jpeg" onclick="openLightbox(this)"><img src="IMG_0484.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Drawing</div></div></div></div>
     <div class="art-card reveal" data-title="Untitled" data-meta="Drawing" data-src="IMG_0483.jpeg" onclick="openLightbox(this)"><img src="IMG_0483.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Drawing</div></div></div></div>
     <div class="art-card reveal" data-title="Untitled" data-meta="Drawing" data-src="IMG_0482.jpeg" onclick="openLightbox(this)"><img src="IMG_0482.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Drawing</div></div></div></div>
@@ -336,12 +342,6 @@ function nextImage(){currentIdx=(currentIdx+1)%cards.length;showImage(currentIdx
 function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
 function closeLightboxBg(e){if(e.target===document.getElementById('lightbox'))closeLightbox();}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')prevImage();if(e.key==='ArrowRight')nextImage();});
-
-function filterGallery(type, btn){
-  document.querySelectorAll('.filter-tab').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-}
-
 function submitForm(e){e.preventDefault();document.getElementById('formSuccess').classList.add('show');e.target.querySelectorAll('input,textarea,select,button[type=submit]').forEach(el=>el.disabled=true);}
 
 (function(){
@@ -350,7 +350,6 @@ function submitForm(e){e.preventDefault();document.getElementById('formSuccess')
   let W,H,t=0,clouds=[];
   function rand(a,b){return a+Math.random()*(b-a);}
   function resize(){W=cv.offsetWidth;H=cv.offsetHeight;cv.width=W;cv.height=H;if(!clouds.length)for(let i=0;i<10;i++)spawnCloud(false);}
-
   function makePuffs(){
     const ps=[];
     const layers=Math.floor(rand(5,9));
@@ -363,138 +362,52 @@ function submitForm(e){e.preventDefault();document.getElementById('formSuccess')
       for(let i=0;i<puffsInLayer;i++){
         const angle=(i/puffsInLayer)*Math.PI*2+rand(-0.3,0.3);
         const spread=layer===layers-1?layerWidth*0.9:layerWidth*0.6;
-        // Stone-in-pond ripple params — 4 concentric wave frequencies
-        ps.push({
-          ox:Math.cos(angle)*spread*rand(0.4,1.0),
-          oy:layerY+Math.sin(angle)*spread*0.25+rand(-20,20),
-          r:puffR,
-          w:rand(0,Math.PI*2), ws:rand(0.0002,0.0007),
-          // 4 ripple waves — different speeds & amplitudes like concentric rings
-          r1:rand(0,Math.PI*2), s1:rand(0.005,0.011), a1:rand(3.5,7.0),
-          r2:rand(0,Math.PI*2), s2:rand(0.009,0.018), a2:rand(2.0,5.0),
-          r3:rand(0,Math.PI*2), s3:rand(0.003,0.007), a3:rand(1.5,3.5),
-          r4:rand(0,Math.PI*2), s4:rand(0.015,0.025), a4:rand(0.8,2.0),
-          // breathing — ink soaking into paper fibres
-          gr:rand(0,Math.PI*2), gs:rand(0.002,0.007),
-          layer:layer, layerFrac:layerFrac
-        });
+        ps.push({ox:Math.cos(angle)*spread*rand(0.4,1.0),oy:layerY+Math.sin(angle)*spread*0.25+rand(-20,20),r:puffR,w:rand(0,Math.PI*2),ws:rand(0.0002,0.0007),r1:rand(0,Math.PI*2),s1:rand(0.005,0.011),a1:rand(3.5,7.0),r2:rand(0,Math.PI*2),s2:rand(0.009,0.018),a2:rand(2.0,5.0),r3:rand(0,Math.PI*2),s3:rand(0.003,0.007),a3:rand(1.5,3.5),r4:rand(0,Math.PI*2),s4:rand(0.015,0.025),a4:rand(0.8,2.0),gr:rand(0,Math.PI*2),gs:rand(0.002,0.007),layer:layer,layerFrac:layerFrac});
       }
     }
     return ps;
   }
-
-  function spawnCloud(fs){
-    const side=Math.random()<0.5?-1:1;
-    clouds.push({
-      x:fs?(side<0?-W*0.4:W*1.4):rand(-W*0.25,W*1.25),
-      y:rand(H*0.20,H*0.82),
-      vx:rand(0.05,0.14)*(Math.random()<0.5?1:-1),
-      puffs:makePuffs(),
-      maxOp:rand(0.10,0.20),
-      opacity:0,
-      age:fs?0:rand(0,600),
-      fadeIn:rand(280,580),
-      scale:rand(1.0,2.1),
-      dead:false
-    });
-  }
-
+  function spawnCloud(fs){const side=Math.random()<0.5?-1:1;clouds.push({x:fs?(side<0?-W*0.4:W*1.4):rand(-W*0.25,W*1.25),y:rand(H*0.20,H*0.82),vx:rand(0.05,0.14)*(Math.random()<0.5?1:-1),puffs:makePuffs(),maxOp:rand(0.10,0.20),opacity:0,age:fs?0:rand(0,600),fadeIn:rand(280,580),scale:rand(1.0,2.1),dead:false});}
   function drawCloud(cl){
     let op=cl.opacity;
     const ef=Math.min(cl.x/(W*0.1),(W-cl.x)/(W*0.1),1);
     op*=Math.max(0,Math.min(1,ef));
     if(op<0.003)return;
-    ctx.save();
-    ctx.translate(cl.x,cl.y);
-    ctx.scale(cl.scale,cl.scale*0.72);
-
+    ctx.save();ctx.translate(cl.x,cl.y);ctx.scale(cl.scale,cl.scale*0.72);
     cl.puffs.forEach(p=>{
       const lf=p.layerFrac||0;
-
-      // Stone-in-pond: 4 sine waves at different frequencies
-      // They add and subtract creating interference pattern — concentric ring feel
-      const ripX = p.a1*Math.sin(t*p.s1+p.r1)
-                 + p.a2*Math.sin(t*p.s2+p.r2)
-                 - p.a3*Math.sin(t*p.s3+p.r3+1.2)
-                 + p.a4*Math.cos(t*p.s4+p.r4);
-      const ripY = p.a1*Math.cos(t*p.s1*0.75+p.r1)
-                 + p.a2*Math.cos(t*p.s2*0.85+p.r2)
-                 - p.a3*Math.cos(t*p.s3*0.6+p.r3)
-                 + p.a4*Math.sin(t*p.s4*0.9+p.r4);
-
-      // Radius breathes with interference — ink expanding unevenly
-      const breathe = 1
-        + 0.07*Math.sin(t*p.gs+p.gr)
-        + 0.04*Math.sin(t*p.gs*1.7+p.gr+0.8)
-        + 0.02*Math.cos(t*p.s3+p.r3);
+      const ripX=p.a1*Math.sin(t*p.s1+p.r1)+p.a2*Math.sin(t*p.s2+p.r2)-p.a3*Math.sin(t*p.s3+p.r3+1.2)+p.a4*Math.cos(t*p.s4+p.r4);
+      const ripY=p.a1*Math.cos(t*p.s1*0.75+p.r1)+p.a2*Math.cos(t*p.s2*0.85+p.r2)-p.a3*Math.cos(t*p.s3*0.6+p.r3)+p.a4*Math.sin(t*p.s4*0.9+p.r4);
+      const breathe=1+0.07*Math.sin(t*p.gs+p.gr)+0.04*Math.sin(t*p.gs*1.7+p.gr+0.8)+0.02*Math.cos(t*p.s3+p.r3);
       const r=p.r*breathe;
-
       const px=p.ox+Math.sin(t*p.ws+p.w)*1.0+ripX;
       const py=p.oy+Math.cos(t*p.ws*0.5+p.w)*0.6+ripY;
-
-      // DEPTH LAYERS — ink bleeding through paper, 5 layers of depth
-
-      // 1. Furthest bleed — ghostly outer halo, ink wicking along fibres
       const gHalo=ctx.createRadialGradient(px,py,r*0.8,px,py,r*2.1);
-      gHalo.addColorStop(0,`rgba(85,90,112,${op*0.10})`);
-      gHalo.addColorStop(0.5,`rgba(92,97,120,${op*0.05})`);
-      gHalo.addColorStop(1,`rgba(100,105,128,0)`);
-      ctx.fillStyle=gHalo;
-      ctx.beginPath();ctx.arc(px,py,r*2.1,0,Math.PI*2);ctx.fill();
-
-      // 2. Outer bleed ring — darker edge where ink concentrates
+      gHalo.addColorStop(0,`rgba(85,90,112,${op*0.10})`);gHalo.addColorStop(0.5,`rgba(92,97,120,${op*0.05})`);gHalo.addColorStop(1,`rgba(100,105,128,0)`);
+      ctx.fillStyle=gHalo;ctx.beginPath();ctx.arc(px,py,r*2.1,0,Math.PI*2);ctx.fill();
       const gOuter=ctx.createRadialGradient(px,py,r*0.5,px,py,r*1.45);
-      gOuter.addColorStop(0,`rgba(95,100,125,${op*0.22})`);
-      gOuter.addColorStop(0.6,`rgba(105,110,135,${op*0.18})`);
-      gOuter.addColorStop(1,`rgba(115,120,145,0)`);
-      ctx.fillStyle=gOuter;
-      ctx.beginPath();ctx.arc(px,py,r*1.45,0,Math.PI*2);ctx.fill();
-
-      // 3. Mid body — the main ink mass
-      const gMid=ctx.createRadialGradient(px-r*0.12,py-r*0.12,r*0.05,px+r*0.05,py+r*0.05,r);
+      gOuter.addColorStop(0,`rgba(95,100,125,${op*0.22})`);gOuter.addColorStop(0.6,`rgba(105,110,135,${op*0.18})`);gOuter.addColorStop(1,`rgba(115,120,145,0)`);
+      ctx.fillStyle=gOuter;ctx.beginPath();ctx.arc(px,py,r*1.45,0,Math.PI*2);ctx.fill();
       const d=Math.round(115+lf*25);
-      gMid.addColorStop(0,  `rgba(${d+8},${d+12},${d+30},${op*0.70})`);
-      gMid.addColorStop(0.45,`rgba(${d},${d+5},${d+22},${op*0.52})`);
-      gMid.addColorStop(0.78,`rgba(${d-10},${d-6},${d+12},${op*0.28})`);
-      gMid.addColorStop(1,  `rgba(${d-18},${d-14},${d+5},0)`);
-      ctx.fillStyle=gMid;
-      ctx.beginPath();ctx.arc(px,py,r,0,Math.PI*2);ctx.fill();
-
-      // 4. Inner pale zone — wet centre, ink pushed to edges by surface tension
-      const gInner=ctx.createRadialGradient(px-r*0.15,py-r*0.18,0,px,py,r*0.6);
+      const gMid=ctx.createRadialGradient(px-r*0.12,py-r*0.12,r*0.05,px+r*0.05,py+r*0.05,r);
+      gMid.addColorStop(0,`rgba(${d+8},${d+12},${d+30},${op*0.70})`);gMid.addColorStop(0.45,`rgba(${d},${d+5},${d+22},${op*0.52})`);gMid.addColorStop(0.78,`rgba(${d-10},${d-6},${d+12},${op*0.28})`);gMid.addColorStop(1,`rgba(${d-18},${d-14},${d+5},0)`);
+      ctx.fillStyle=gMid;ctx.beginPath();ctx.arc(px,py,r,0,Math.PI*2);ctx.fill();
       const c=Math.round(195+lf*18);
-      gInner.addColorStop(0,`rgba(${c},${c+2},${c+15},${op*0.62})`);
-      gInner.addColorStop(0.55,`rgba(${c-12},${c-8},${c+8},${op*0.40})`);
-      gInner.addColorStop(1,`rgba(${c-25},${c-20},${c-2},0)`);
-      ctx.fillStyle=gInner;
-      ctx.beginPath();ctx.arc(px,py,r*0.6,0,Math.PI*2);ctx.fill();
-
-      // 5. Surface sheen — wet paper highlight, very top
+      const gInner=ctx.createRadialGradient(px-r*0.15,py-r*0.18,0,px,py,r*0.6);
+      gInner.addColorStop(0,`rgba(${c},${c+2},${c+15},${op*0.62})`);gInner.addColorStop(0.55,`rgba(${c-12},${c-8},${c+8},${op*0.40})`);gInner.addColorStop(1,`rgba(${c-25},${c-20},${c-2},0)`);
+      ctx.fillStyle=gInner;ctx.beginPath();ctx.arc(px,py,r*0.6,0,Math.PI*2);ctx.fill();
       const hlOp=op*(0.28+lf*0.20);
       const gHL=ctx.createRadialGradient(px-r*0.24,py-r*0.30,0,px-r*0.05,py-r*0.08,r*0.38);
-      gHL.addColorStop(0,`rgba(238,240,245,${hlOp})`);
-      gHL.addColorStop(1,`rgba(230,233,240,0)`);
-      ctx.fillStyle=gHL;
-      ctx.beginPath();ctx.arc(px-r*0.08,py-r*0.12,r*0.38,0,Math.PI*2);ctx.fill();
+      gHL.addColorStop(0,`rgba(238,240,245,${hlOp})`);gHL.addColorStop(1,`rgba(230,233,240,0)`);
+      ctx.fillStyle=gHL;ctx.beginPath();ctx.arc(px-r*0.08,py-r*0.12,r*0.38,0,Math.PI*2);ctx.fill();
     });
-
     ctx.restore();
   }
-
-  function update(){
-    clouds.forEach(cl=>{
-      cl.x+=cl.vx;cl.age++;
-      if(cl.age<cl.fadeIn)cl.opacity=(cl.age/cl.fadeIn)*cl.maxOp;
-      else cl.opacity=cl.maxOp;
-      if(cl.x<-W*0.55||cl.x>W*1.55)cl.dead=true;
-    });
-    clouds=clouds.filter(c=>!c.dead);
-    if(Math.random()<0.01&&clouds.length<16)spawnCloud(true);
-    if(clouds.length<6)for(let i=0;i<3;i++)spawnCloud(true);
-  }
-
+  function update(){clouds.forEach(cl=>{cl.x+=cl.vx;cl.age++;if(cl.age<cl.fadeIn)cl.opacity=(cl.age/cl.fadeIn)*cl.maxOp;else cl.opacity=cl.maxOp;if(cl.x<-W*0.55||cl.x>W*1.55)cl.dead=true;});clouds=clouds.filter(c=>!c.dead);if(Math.random()<0.01&&clouds.length<16)spawnCloud(true);if(clouds.length<6)for(let i=0;i<3;i++)spawnCloud(true);}
   function frame(){ctx.clearRect(0,0,W,H);clouds.forEach(drawCloud);update();t+=0.38;requestAnimationFrame(frame);}
   new ResizeObserver(resize).observe(document.getElementById('hero'));
   resize();frame();
 })();
 </script>
+</body>
+</html>
