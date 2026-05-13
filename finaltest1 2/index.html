@@ -64,13 +64,13 @@ nav.scrolled .nav-logo img{height:38px;}
 .section-btn.outline{background:transparent;color:var(--dim);border-color:var(--border);}
 .section-btn.outline:hover{border-color:var(--ink);color:var(--ink);}
 
-.masonry{columns:3;column-gap:16px;max-width:1320px;margin:0 auto;}
-@media(max-width:900px){.masonry{columns:2;}}
+.masonry{columns:3;column-gap:14px;max-width:1320px;margin:0 auto;}
+@media(min-width:1600px){.masonry{columns:4;}}@media(max-width:900px){.masonry{columns:2;}}
 @media(max-width:540px){.masonry{columns:1;}}
 
 .art-card{break-inside:avoid;margin-bottom:16px;position:relative;overflow:hidden;cursor:pointer;background:var(--off);transition:box-shadow 0.4s;}
 .art-card:hover{box-shadow:0 14px 44px var(--shadow);}
-.art-card img{width:100%;display:block;transition:transform 0.6s cubic-bezier(.25,.46,.45,.94);}
+.art-card img{width:100%;display:block;transition:transform 0.6s cubic-bezier(.25,.46,.45,.94);max-height:520px;object-fit:cover;}
 .art-card:hover img{transform:scale(1.03);}
 .art-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(42,40,37,0.55) 0%,transparent 50%);opacity:0;transition:opacity 0.4s;display:flex;align-items:flex-end;padding:22px;}
 .art-card:hover .art-card-overlay{opacity:1;}
@@ -193,7 +193,11 @@ footer{border-top:1px solid var(--border);padding:36px 52px;display:flex;align-i
     <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="C3056C5E-DBC8-4820-9260-D9BC23978253.jpeg" onclick="openLightbox(this)"><img src="C3056C5E-DBC8-4820-9260-D9BC23978253.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
     <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="E297F1AA-05AB-44C6-A5D9-E75521CFAD9E_1_105_c.jpeg" onclick="openLightbox(this)"><img src="E297F1AA-05AB-44C6-A5D9-E75521CFAD9E_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
     <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="EE7E1EED-7538-4EB3-BB60-5C103098834D.jpeg" onclick="openLightbox(this)"><img src="EE7E1EED-7538-4EB3-BB60-5C103098834D.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
-    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="EF26B946-6556-49E8-A001-D9885EC9D7B7_1_105_c.jpeg" onclick="openLightbox(this)"><img src="EF26B946-6556-49E8-A001-D9885EC9D7B7_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div></div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="EF26B946-6556-49E8-A001-D9885EC9D7B7_1_105_c.jpeg" onclick="openLightbox(this)"><img src="EF26B946-6556-49E8-A001-D9885EC9D7B7_1_105_c.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="IMG_5266.jpeg" onclick="openLightbox(this)"><img src="IMG_5266.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="IMG_9117.jpeg" onclick="openLightbox(this)"><img src="IMG_9117.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="IMG_9126.jpeg" onclick="openLightbox(this)"><img src="IMG_9126.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
+    <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="IMG_9128.jpeg" onclick="openLightbox(this)"><img src="IMG_9128.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
     <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p1.jpg" onclick="openLightbox(this)"><img src="p1.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
     <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p2.jpg" onclick="openLightbox(this)"><img src="p2.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
     <div class="art-card reveal" data-title="Untitled" data-meta="Oil on Canvas" data-src="p3.jpg" onclick="openLightbox(this)"><img src="p3.jpg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Oil on Canvas</div></div></div></div>
@@ -220,11 +224,11 @@ footer{border-top:1px solid var(--border);padding:36px 52px;display:flex;align-i
 
 <div class="divider"></div>
 
-<div id="drawings" style="padding:100px 48px;max-width:100%;">
+<div id="drawings" style="padding:100px 48px;max-width:100%;scroll-margin-top:80px;">
   <p class="section-label reveal">Drawings</p>
   <div class="section-buttons" style="max-width:1320px;margin:0 auto 44px;display:flex;gap:10px;">
     <a href="#gallery" class="section-btn outline">Paintings</a>
-    <a href="#drawings" class="section-btn">Drawings</a>
+    <a href="#drawings" class="section-btn" onclick="setTimeout(()=>document.getElementById('drawings').scrollIntoView({behavior:'smooth'}),10)">Drawings</a>
   </div>
   <div class="masonry" id="drawingsMasonry">
     <div class="art-card reveal" data-title="Untitled" data-meta="Drawing" data-src="IMG_0443.jpeg" onclick="openLightbox(this)"><img src="IMG_0443.jpeg" alt="Untitled" loading="lazy"/><div class="art-card-overlay"><div class="art-info"><div class="art-title">Untitled</div><div class="art-meta">Drawing</div></div></div></div>
